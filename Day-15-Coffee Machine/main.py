@@ -25,9 +25,9 @@ MENU = {
 }
 
 resources = {
-    "water": 300,
-    "milk": 200,
-    "coffee": 100,
+    "water": 3000,
+    "milk": 1000,
+    "coffee": 500,
 }
 
 is_on = True
@@ -40,7 +40,7 @@ def make_coffee(drink_name, order_ingredient):
 
 def check_ingredient(order_ingredient):
     for item in order_ingredient:
-        if order_ingredient[item] > resources[item]:
+        if order_ingredient[item] >= resources[item]:
             print(f"Sorry there is not enough {item}.")
             return False
     return True
@@ -56,7 +56,7 @@ def process_coin():
     return total
 
 def check_transaction(money_received, drink_cost):
-    if (money_received > drink_cost):
+    if (money_received >= drink_cost):
         change = round(money_received - drink_cost,2)
         print(f"Here is your change {change}")
         global profit
